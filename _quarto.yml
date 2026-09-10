@@ -1,0 +1,27 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Einführung in die Wirtschaftspolitik und Außenwirtschaft"
+  subtitle: "Wintersemester 2026/27" 
+  author: "Prof. Dr. Jan S. Voßwinkel"
+  language:  _language.yml
+  repo-url: https://github.com/janvoss/Wipo-dhbw.git
+
+  chapters:
+    - index.qmd
+    #- Literatur.qmd
+    #- Uebungsfragen.qmd
+
+# bibliography: Makro.bib
+
+format:
+  html:
+    theme: cosmo
+    code-fold: true
+    code-overflow: wrap
+    
+
+editor: source
+

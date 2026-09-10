@@ -1,0 +1,30 @@
+
+```{r qr,  echo=FALSE, warning=FALSE}
+library(qrcode)
+
+qr <- qr_code('https://janvoss.github.io/Makro')
+#plot(qr)
+
+generate_svg(qr, filename = "qr-titel.svg")
+
+```
+
+|       ${}$        |  ${}$  |
+|:-----------------:|:--------------------------------------------------:|
+| ![logo](https://www.dhbw-stuttgart.de/_assets/5af6e032b6db61b24d0363534b35034c/Images/logo.svg){width="120%"} |    ![](qr-titel.svg){width="30%"}              |
+
+
+:::{.callout-note 
+    icon=false 
+    collapse=true }
+
+# Organisatorisches {.unnumbered}
+
+- Unterlagen: <https://janvoss.github.io/Makro/>
+
+- Erreichbarkeit: jan.vosswinkel@hfwu.de
+
+
+- Prüfungsleistung: xxx
+
+:::
