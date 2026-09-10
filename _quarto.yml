@@ -11,10 +11,10 @@ book:
 
   chapters:
     - index.qmd
-    #- Literatur.qmd
+    - Literatur.qmd
     #- Uebungsfragen.qmd
 
-# bibliography: Makro.bib
+bibliography: Wipo-dhbw.bib
 
 format:
   html:
