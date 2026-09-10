@@ -22,7 +22,7 @@ generate_svg(qr, filename = "qr-titel.svg")
 
 - Unterlagen: <https://janvoss.github.io/Wipo-dhbw/>
 
-- Erreichbarkeit: jan.vosswinkel@hfwu.de
+- Erreichbarkeit: <jan.vosswinkel@hfwu.de>
 
 
 - Prüfungsleistung: xxx
