@@ -14,7 +14,7 @@ book:
     - Literatur.qmd
     #- Uebungsfragen.qmd
 
-bibliography: Wipo-dhbw.bib
+bibliography: Wipodhbw.bib
 
 format:
   html:
