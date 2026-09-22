@@ -11,6 +11,9 @@ book:
 
   chapters:
     - index.qmd
+    - Einleitung.qmd
+    - Womit.qmd
+    - Wer.qmd
     - Literatur.qmd
     #- Uebungsfragen.qmd
 

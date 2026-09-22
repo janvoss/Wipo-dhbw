@@ -1,0 +1,114 @@
+# Womit befasst sich die Wirtschaftspolitik
+
+## Was sagt die Bundesregierung?
+
+```{python}
+#| output: false
+
+import graphviz
+from IPython.display import display
+
+# Erstellung des gerichteten Graphviz-Diagramms
+dot = graphviz.Digraph(
+    'Jahreswirtschaftsbericht_2026',
+    comment='Übersicht Jahreswirtschaftsbericht 2026',
+    format='svg'
+)
+
+# Globale Layout-Einstellungen
+dot.attr(
+    rankdir='TB',
+   splines='ortho',
+    nodesep='0.5',
+    ranksep='0.7',
+    fontname='Arial',
+    fontsize='12',
+    bgcolor='#F8FAFC'
+)
+
+# Standard-Node-Styling
+dot.attr('node', shape='rect', style='filled,rounded', fontname='Arial', fontsize='10', margin='0.2,0.1')
+dot.attr('edge', color='#64748B', penwidth='1.5')
+
+# Hauptknoten (Titel)
+dot.node(
+    'root',
+    'Jahreswirtschaftsbericht 2026\nBundesregierung\n("Schrittweise Erholung & Strukturreformen")',
+    fillcolor='#0F172A',
+    fontcolor='#FFFFFF',
+    fontsize='13',
+    style='filled,rounded'
+)
+
+# --- 1. Konjunkturelle Lage ---
+with dot.subgraph(name='cluster_konjunktur') as c:
+    c.attr(label='1. Konjunkturelle Lage & Ausblick 2026', style='filled,dashed', fillcolor='#EFF6FF', color='#2563EB', fontname='Arial-Bold')
+    c.node('bip', 'BIP-Wachstum: +1,0 %\n(2025: +0,2 %)', fillcolor='#DBEAFE', color='#2563EB')
+    c.node('treiber', 'Wachstumstreiber:\n• Private/staatliche Konsumausgaben\n• Wiederbelebung von Investitionen', fillcolor='#DBEAFE', color='#2563EB')
+    c.node('arbeitsmarkt', 'Arbeitsmarkt:\n• Arbeitslosenquote ~6,2 % (2025: 6,3 %)\n• Stagnation Erwerbstätige auf hohem Niveau', fillcolor='#DBEAFE', color='#2563EB')
+    c.node('inflation', 'Inflation:\n• Stabilisiert nahe Notenbankziel (~2,1 %)', fillcolor='#DBEAFE', color='#2563EB')
+
+# --- 2. Strukturelle Herausforderungen ---
+with dot.subgraph(name='cluster_herausforderungen') as c:
+    c.attr(label='2. Strukturelle Herausforderungen', style='filled,dashed', fillcolor='#FEF2F2', color='#DC2626', fontname='Arial-Bold')
+    c.node('inland', 'Inländische Belastungen:\n• Hohe Regulierungsdichte & Bürokratie\n• Öffentlicher Investitionsstau\n• Hohe Energiekosten\n• Demografie & Fachkräftemangel', fillcolor='#FEE2E2', color='#DC2626')
+    c.node('aussen', 'Internationale Belastungen:\n• Geopolitische Spannungen\n• Protektionismus (z.B. US-Zölle)\n• China-Überkapazitäten\n• Negativer Außenhandelsbeitrag', fillcolor='#FEE2E2', color='#DC2626')
+
+# --- 3. Strategische Ziele & Dreiklang ---
+with dot.subgraph(name='cluster_strategie') as c:
+    c.attr(label='3. Ziele & Gesamtwirtschaftliches Gleichgewicht', style='filled,dashed', fillcolor='#F1F5F9', color='#475569', fontname='Arial-Bold')
+    c.node('ziele', 'Oberziele:\n• Wachstumspotenzial steigern\n• Wettbewerbsfähigkeit wiederherstellen\n• Wirtschaftliche Resilienz sichern', fillcolor='#E2E8F0', color='#475569')
+    c.node('dreiklang', 'Strategischer Dreiklang:\n1. Öffentliche Investitionsoffensive\n2. Angebotsorientierte Strukturreformen\n3. Wachstumsfreundliche Konsolidierung', fillcolor='#E2E8F0', color='#475569')
+
+# --- 4. Die 6 Reformfelder ---
+with dot.subgraph(name='cluster_reformen') as c:
+    c.attr(label='4. Die 6 zentralen Reformfelder', style='filled,dashed', fillcolor='#F0FDF4', color='#16A34A', fontname='Arial-Bold')
+    c.node('r1', '1. Bürokratierückbau:\n• -25 % Bürokratielasten\n• Verfahrensbeschleunigung', fillcolor='#DCFCE7', color='#16A34A')
+    c.node('r2', '2. Infrastrukturmodernisierung:\n• Sondervermögen: 500 Mrd. € / 12 J.\n• Verkehr, Digitales, Energie, Wohnen', fillcolor='#DCFCE7', color='#16A34A')
+    c.node('r3', '3. Innovationen:\n• KI, Microelektronik, Biotech, Fusion\n• Start-up & Wagniskapital-Förderung', fillcolor='#DCFCE7', color='#16A34A')
+    c.node('r4', '4. Energiepolitik:\n• ≥80 % EE bis 2030 & H2-Kernnetz\n• Senkung der Strompreis-Systemkosten', fillcolor='#DCFCE7', color='#16A34A')
+    c.node('r5', '5. Arbeitsangebot:\n• Anreize für Ältere & Kinderbetreuung\n• Digitale Erwerbsmigration\n• SV-Beiträge stabilisieren', fillcolor='#DCFCE7', color='#16A34A')
+    c.node('r6', '6. Außenwirtschaft:\n• Vertiefung EU-Binnenmarkt\n• Diversifizierung von Handelsbeziehungen', fillcolor='#DCFCE7', color='#16A34A')
+
+# --- 5. Flankierende Politiken ---
+with dot.subgraph(name='cluster_flankierend') as c:
+    c.attr(label='5. Flankierende Politiken', style='filled,dashed', fillcolor='#FFFBEB', color='#D97706', fontname='Arial-Bold')
+    c.node('klima', 'Industrie & Klima:\n• THG-Minderung ≥65 % bis 2030\n• CO2-Differenzverträge & CBAM', fillcolor='#FEF3C7', color='#D97706')
+    c.node('sicherheit', 'Regionen & Sicherheit:\n• Strukturschwache Regionen stärken\n• Schutz kritischer Infrastruktur\n• Strategischer Rohstoffzugang', fillcolor='#FEF3C7', color='#D97706')
+
+# --- KANTEN / VERBINDUNGEN ---
+# Root Verbindungen
+dot.edge('root', 'bip')
+dot.edge('root', 'inland')
+dot.edge('root', 'ziele')
+
+# Konjunktur Verbindungen
+dot.edge('bip', 'treiber')
+dot.edge('bip', 'arbeitsmarkt')
+dot.edge('bip', 'inflation')
+
+# Herausforderungen Verbindungen
+dot.edge('inland', 'aussen')
+
+# Strategie zu Reformfeldern
+dot.edge('ziele', 'dreiklang')
+dot.edge('dreiklang', 'r1')
+dot.edge('dreiklang', 'r2')
+dot.edge('dreiklang', 'r3')
+dot.edge('dreiklang', 'r4')
+dot.edge('dreiklang', 'r5')
+dot.edge('dreiklang', 'r6')
+
+# Verbindungen zu flankierenden Maßnahmen
+dot.edge('dreiklang', 'klima')
+dot.edge('dreiklang', 'sicherheit')
+
+# Grafik im Arbeitsverzeichnis als SVG speichern
+dot.render('jahreswirtschaftsbericht_2026', format='svg', cleanup=True)
+
+# Ausgabe direkt im Jupyter/IPython Notebook
+#display(dot)
+```
+![Der Jahreswirtschaftsbericht der Bundesregierung 2026. Darstellung: Jan S. Voßwinkel](jahreswirtschaftsbericht_2026.svg)
+
+## Was sagen die Lehrbücher?
